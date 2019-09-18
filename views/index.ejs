@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="/style/bootstrap.min.css">
+  <title>OCR</title>
+  <style >
+  body{
+    min-height: 100vh;
+    background: linear-gradient(102deg, rgba(249, 249, 249, 0.1) 0%, rgba(249, 249, 249, 0.1) 14%,rgba(161, 161, 161, 0.1) 14%, rgba(161, 161, 161, 0.1) 100%),linear-gradient(310deg, rgba(26, 26, 26, 0.03) 0%, rgba(26, 26, 26, 0.03) 71%,rgba(189, 189, 189, 0.03) 71%, rgba(189, 189, 189, 0.03) 100%),linear-gradient(133deg, rgba(132, 132, 132, 0.1) 0%, rgba(132, 132, 132, 0.1) 8%,rgba(95, 95, 95, 0.1) 8%, rgba(95, 95, 95, 0.1) 100%),linear-gradient(142deg, rgba(110, 110, 110, 0.03) 0%, rgba(110, 110, 110, 0.03) 46%,rgba(8, 8, 8, 0.03) 46%, rgba(8, 8, 8, 0.03) 100%),linear-gradient(346deg, rgba(231, 231, 231, 0.05) 0%, rgba(231, 231, 231, 0.05) 6%,rgba(71, 71, 71, 0.05) 6%, rgba(71, 71, 71, 0.05) 100%),linear-gradient(118deg, rgba(251, 251, 251, 0.07) 0%, rgba(251, 251, 251, 0.07) 72%,rgba(24, 24, 24, 0.07) 72%, rgba(24, 24, 24, 0.07) 100%),linear-gradient(338deg, rgba(75, 75, 75, 0.08) 0%, rgba(75, 75, 75, 0.08) 37%,rgba(213, 213, 213, 0.08) 37%, rgba(213, 213, 213, 0.08) 100%),linear-gradient(90deg, rgb(199, 202, 132),rgb(25, 94, 125))
+  }
+  h1, h2{
+    margin-bottom: 20px !important;
+  }
+  textarea{
+    min-height: 200px;
+    max-height: 500px
+  }
+  </style>
+</head>
+<body>
+  <div class="container" style="padding-top: 50px!important;">
+    <div class="row">
+      <div class="col-md-12">
+        <h1 class="text-light">
+          OCR (Optical character recognition)
+        </h1>
+      </div>
+      <% if(err) { %>
+        <div class="col-md-12">
+          <div class="alert alert-danger" role="alert">
+            <p><%= err %></p>
+          </div>
+        </div>
+      <% } %>
+      <div class="col-md-12">
+        <form action="/" method="POST" enctype="multipart/form-data">
+          <div class="form-group">
+            <input class="form-control" type="file" name="image" accept="image/jpeg, image/png, image/jpg">
+          </div>
+          <div class="form-group">
+            <input class="btn btn-primary form-control" type="submit" value="Convert">
+          </div>
+        </form>
+      </div>
+      <% if(text) { %>
+        <div class="col-md-12">
+          <div class="form-group">
+            <textarea class="form-control">
+              <%= text %>
+            </textarea>
+          </div>
+        </div>
+      <% } %>
+    </div>
+  </div>
+  <script>
+    let btn = document.querySelector('.btn');
+    btn.onclick = function(e){
+      e.target.textContent = "Wiat...";
+    }
+    window.onload = function(){
+      btn.textContent = "Wiat...";
+    }
+  </script>
+</body>
+</html>
