@@ -49,7 +49,7 @@ app.post('/', (req, res)=>{
       fs.readFile(__dirname + '/uploads/'+ global.random + req.file.originalname, (err, data)=>{
         if (err) console.log(err);
         global.random = Math.random().toString().slice(2,10);
-        worker.recognize(data, "eng"/*, {tessjs_create_pdf: "1"}*/)
+        worker.recognize(data, "ara"/*, {tessjs_create_pdf: "1"}*/)
           .progress( progess =>{
             console.log(progess);
           })
