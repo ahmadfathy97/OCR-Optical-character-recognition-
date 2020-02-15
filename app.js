@@ -5,7 +5,7 @@ const fs = require('fs');
 const path = require('path');
 const {TesseractWorker} = require('tesseract.js');
 const worker = new TesseractWorker();
-const port = 3000 || process.env.PORT;
+const port = process.env.PORT;
 const app = express();
 global.random = Math.random().toString().slice(2,10);
 function filter(file, cb) {
